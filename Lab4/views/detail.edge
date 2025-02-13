@@ -1,0 +1,8 @@
+@layyouts.master({title: post.title}) 
+    <h1>{{post.title}}</h1>
+    <p>{{post.body}}</p>
+    <a class="ui button" href="{{ route('posts.home') }}">Back</a> &nbsp;
+    <a class="ui button" href="{{ route('posts.edit', {id: post.id}) }}">Edit</a> &nbsp;
+    <a class="ui button" href="{{ route('posts.delete', {id: post.id}) }}">Delete</a>
+@end
+    

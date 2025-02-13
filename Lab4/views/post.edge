@@ -1,0 +1,16 @@
+@layyouts.master({title: post ? 'Edit Post' : 'Create Post'}) 
+    <h1>{{ post ? 'Edit Post' : 'Create Post' }}</h1>
+    <form class="ui form" action="{{ post? route('posts.update', {id: post.id}) : route('posts.home') }}" method="post">
+        {{ csrfField() }}
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="title" size="50" value="{{ post ? post.title : '' }}" required>
+        </div>
+        <div class="field">
+            <label>Body</label>
+            <textarea name="body" cols="50" rows="5" required>{{ post ? post.body : '' }}</textarea>
+        </div>
+        <input class="ui button" type="submit" value="Save">&nbsp;
+        <a class="ui button" href="{{ route('posts.home') }}">Cancel</a>
+    </form>
+@end
