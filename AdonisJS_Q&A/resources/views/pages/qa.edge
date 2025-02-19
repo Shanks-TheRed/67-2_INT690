@@ -1,0 +1,23 @@
+@layouts.master({title: "Q&A"}) 
+    @slot('main')
+        <a href="{{ route('qa.home') }}"><h1 class="ui aligned center header">AdonisJS Q&A</h1></a>
+        @include('partials/qa_search')
+        @include('partials/qa_accordion')
+    @end
+
+    @slot('style')
+        <style>
+            h1 {
+                margin-bottom: 50px !important;
+            }
+            .icon {
+                margin-top: 10px;
+                float: right;
+            }
+        </style>
+    @end
+
+    @slot('script')
+    <script>$('.ui.accordion').accordion('refresh')</script>
+    @end
+@end

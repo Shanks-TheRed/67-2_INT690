@@ -1,0 +1,16 @@
+@layouts.master({ title: 'Q&A Form' }) 
+    <h3>{{ qa? 'Edit Q&A' : 'New Q&A' }}</h3>
+    <form class="ui form" action="{{ qa? route('qa.update', {id: qa.id}) : route('qa.store') }}" method="post">
+        {{ csrfField() }}
+        <div class="field">
+            <label>Question</label>
+            <input type="text" name="question" value="{{ qa? qa.question : '' }}">
+        </div>
+        <div class="field">
+            <label>Answer</label>
+            <textarea name="answer" rows="5" required>{{ qa? qa.answer : '' }}</textarea>
+        </div>
+        <input type="submit" class="ui button", value="{{ qa? 'Update' : 'Save' }}">
+        <a class="ui button" href="{{ route('qa.home') }}">Back</a>
+    </form>
+@end

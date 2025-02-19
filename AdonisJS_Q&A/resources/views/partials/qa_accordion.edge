@@ -1,0 +1,21 @@
+<div class="ui accordion styled fluid">
+    @each(qa in qas)
+    <hr>
+    <div class="title">
+        <i class="dropdown icon"></i>
+        {{ qa.question }}
+    </div>
+    <div class="content">
+        {{ qa.answer }}
+        <div class="icons">
+            <a href="{{ route('qa.delete', {id: qa.id}) }}">
+                <i class="trash alternate outline icon"></i>
+            </a>
+            <a href="{{ route('qa.edit', {id: qa.id}) }}">
+                <i class="edit outline icon"></i>
+            </a>
+        </div>
+    </div>
+    @end
+    <hr>
+</div>
