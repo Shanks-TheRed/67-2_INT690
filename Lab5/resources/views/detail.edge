@@ -1,0 +1,31 @@
+@layyouts.master({title: post.title}) 
+    @alert({ title: 'Delete?' })
+        @slot('actions')
+            <div class="ui approve button">Delete</div>
+            <div class="ui deny button">Cancel</div>
+        @end
+        <p>Do you want to delete this post?</p>
+    @end
+
+    <h1 class="ui header">{{post.title}}</h1>
+    <p>{{post.body}}</p>
+    @!button({ action: route('posts.home'), label: "Back" }) 
+    @!button({ action: route('posts.edit', {id: post.id}), label: "Edit" }) 
+    @!button({ classname: "delete", label: "Delete" })
+
+    @slot('script')
+    <script>
+        $(document).ready(function() {
+            $('.ui.button.delete').click(function() {
+                $('.ui.modal').modal({
+                    closable: false,
+                    onApprove: function() {
+                        window.location.href = "{{ route('posts.delete', {id: post.id}) }}";
+                    }
+                }).modal('show');
+            });
+        });
+    </script>
+    @end
+@end
+    

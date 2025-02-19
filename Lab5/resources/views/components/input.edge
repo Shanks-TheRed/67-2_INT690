@@ -1,0 +1,16 @@
+{{-- 
+label: field label
+name: field name
+other props: other input attributes such as type, size, placeholder
+--}}
+
+<div class="field" {{ $props.only('style').toAttrs() }} >
+    @if(label)
+        <label for="{{name}}">{{label}}</label>
+    @end
+    @if(type=="submit")
+        <input id="{{name}}" class="ui tiny button" {{ $props.except(['label', 'style']).toAttrs() }}>
+    @else
+        <input id="{{name}}" {{ $props.except(['label', 'style']).toAttrs() }}>
+    @end
+</div>
