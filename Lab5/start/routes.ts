@@ -9,7 +9,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { HttpContext } from '@adonisjs/core/http'
-import PostsController from '../app/controllers/posts_controller.js'
+import PostsController from '#controllers/posts_controller'
 
 router.get('/', ({response}: HttpContext) => {
     response.redirect().toPath('/posts')
