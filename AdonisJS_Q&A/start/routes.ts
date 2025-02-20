@@ -9,7 +9,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { HttpContext } from '@adonisjs/core/http'
-import QaController from '../app/controllers/qa_controller.js'
+import QaController from '#controllers/qa_controller'
 
 
 router.get('/', ({response}: HttpContext) => {
