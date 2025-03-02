@@ -1,0 +1,26 @@
+@layouts.master({title: "รายการที่สั่ง"}) 
+    @if(orderItems.length > 0) 
+        <div class="ui divided items">
+            @each(order in orderItems)
+                @!item({
+                    image: order.image,
+                    name: order.name,
+                    quantity: order.quantity,
+                    price: order.price,
+                    increase: route('menus.takeOrder', {id: order.menuId}),
+                    decrease: route('menus.removeOrder', {oid: order.oid}),
+                    purge: route('menus.removeOrderAll', {oid: order.oid})
+                })
+            @end
+        </div>
+        <div class="ui grid">
+            <div class="three column teal row">
+                <div class="three wide column"><h4 class="ui header">จำนวน: {{orderItems.length}}</h4></div>
+                <div class="ten wide column"></div>
+                <div class="three wide column"><h4 class="ui header">ยอดเงิน: {{amount}} บาท</h4></div>
+            </div>
+        </div>
+    @else
+        <h2 style="text-align: center;">ยังไม่มีรายการสั่ง</h2>
+    @end
+@end

@@ -1,0 +1,19 @@
+<div class="item">
+    <div class="image">
+        <img class="ui mini image" src="/images/{{image}}.png">
+    </div>
+    <div class="content">
+        <div class="header"><h3>{{name}}</h3></div>
+        <div class="description">
+            <h4>
+                จำนวน: {{quantity}}
+                <a class="ui mini green button" href="{{ increase }}">+</a>
+                <a class="ui mini red button" href="{{ decrease }}">-</a>
+            </h4>
+            <h4>{{price}} บาท</h4>
+        </div>
+        <div class="extra">
+            <a href="{{ purge }}" class="ui right floated tiny red button">ลบรายการ</a>
+        </div>
+    </div>
+</div>

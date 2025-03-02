@@ -1,0 +1,24 @@
+@layouts.master({title: "รายการอาหาร"}) 
+    <h2 class="ui header">อาหารจานเดียว</h2>
+    <div class="ui one cards">
+        @each(meal in meals)
+            @!menu({
+                image: meal.image,
+                name: meal.name,
+                price: meal.price,
+                action: route('menus.takeOrder', {id: meal.id})
+            })
+        @end
+    </div>
+    <h2 class="ui header">เครื่องดื่ม</h2>
+    <div class="ui one cards">
+        @each(drink in drinks)
+            @!menu({
+                image: drink.image,
+                name: drink.name,
+                price: drink.price,
+                action: route('menus.takeOrder', {id: drink.id})
+            })
+        @end
+    </div>
+@end
