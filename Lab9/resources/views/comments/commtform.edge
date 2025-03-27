@@ -1,0 +1,27 @@
+<form class="ui form"
+      action="{{ route('comments.store', {postid: post.id}) }}"
+      method="post"
+>
+    {{ csrfField() }}
+    <div class="two wide field">
+        @!input({
+            label: "Your name",
+            name: "poster",
+            type: "text",
+            size: "20",
+            flashvalue: old('poster') || '',
+            value: ''
+        })
+    </div>
+    <div class="field">
+        @!textarea({
+            label: "Comment",
+            name: "comment",
+            cols: "50",
+            rows: "5",
+            flashvalue: old('comment') || '',
+            value: ''
+        })
+    </div>
+    <input type="submit" value="Submit">
+</form>

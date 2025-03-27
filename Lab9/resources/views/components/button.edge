@@ -1,0 +1,14 @@
+{{--
+label: button label
+action: href
+--}}
+
+<a 
+    @if(action)
+        href="{{ action }}"
+    @end 
+    class="ui tiny button {{ classname || '' }}" 
+    {{ $props.except(['label', 'action']).toAttrs() }}
+    >
+    {{label}}
+</a>

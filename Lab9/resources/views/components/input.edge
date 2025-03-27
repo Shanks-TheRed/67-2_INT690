@@ -1,0 +1,25 @@
+{{-- 
+label: field label
+name: field name
+other props: other input attributes such as type, size, placeholder
+--}}
+
+<div class="field" {{ $props.only('style').toAttrs() }} >
+    @if(label)
+        <label for="{{ name }}">{{ label }}</label>
+    @end
+    @if(type=="submit")
+        <input id="{{ name || '' }}" type="{{ type }}" value="{{ value }}" class="ui tiny button">
+    @else
+        @if(flashMessages.has(name))
+            <input id="{{ name }}" name="{{ name }}" type="{{ type }}" size="{{ size }}" value="{{ flashvalue }}">
+        @else
+            <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}">
+        @end
+        @inputError(name)
+            @each(message in $messages)
+                <div class="ui negative message">{{ message }}</div>
+            @end
+        @end
+    @end
+</div>

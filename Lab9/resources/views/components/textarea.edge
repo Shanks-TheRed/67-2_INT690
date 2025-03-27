@@ -1,0 +1,20 @@
+{{-- 
+label: field label
+name: field name
+value: textarea value
+other props: other input attributes such as rows, cols, placeholder
+--}}
+
+<div class="field">
+    <label for="{{ name }}">{{ label }}</label>
+    @if(flashMessages.has(name))
+        <textarea id="{{ name }}" name="{{ name }}" rows="{{ rows }}" cols="{{ cols }}">{{ flashvalue }}</textarea>
+    @else
+        <textarea id="{{ name }}" name="{{ name }}" rows="{{ rows }}" cols="{{ cols }}">{{ value }}</textarea>
+    @end
+    @inputError(name)
+        @each(message in $messages)
+            <div class="ui negative message">{{ message }}</div>
+        @end
+    @end
+</div>

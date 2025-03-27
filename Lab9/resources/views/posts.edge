@@ -1,0 +1,16 @@
+@layyouts.master({title: "Posts"})
+    <h1 class="ui header">Posts</h1>
+    <ul class="ui bullet list">
+    @each(post in posts)
+        <li>
+            <a href="{{ route('posts.show', {id: post.id}) }}">
+                {{post.title}}
+            </a>
+            &nbsp;&nbsp;<a href="{{ route('comments.index', {postid: post.id}) }}">
+                [{{ post.$extras.commentsCount }} comments]
+            </a>
+        </li>
+    @endeach
+    </ul>
+    @!button({ action: route('posts.create'), label: "New" })
+@end
